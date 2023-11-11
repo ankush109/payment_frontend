@@ -3,6 +3,7 @@ import { GetUserQuery } from "../api/user";
 import { Link, useNavigate } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
 import PaymentsIcon from "@mui/icons-material/Payments";
+import LogoutIcon from "@mui/icons-material/Logout";
 function Navbar() {
   const user = GetUserQuery();
   const navigate = useNavigate();
@@ -64,7 +65,7 @@ function Navbar() {
                     navigate("/login");
                   }}
                 >
-                  Logout
+                  <LogoutIcon />
                 </div>
               ) : (
                 ""

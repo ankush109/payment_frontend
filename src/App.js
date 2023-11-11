@@ -49,13 +49,13 @@ function App() {
       />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/Balance" element={<Balance />} />
           <Route path="/connectBank" element={<BankDetails />} />
           <Route path="/Transfer" element={<Transfer />} />
-          <Route path="/home" element={<Landingpage />} />
+          <Route path="/" element={<Landingpage />} />
         </Routes>
       </BrowserRouter>
     </div>

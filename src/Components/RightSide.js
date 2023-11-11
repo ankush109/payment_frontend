@@ -19,7 +19,7 @@ function RightSide() {
 
   return (
     <div className="bg-slate-300  flex justify-center">
-      {user?.data?.bankAccounts.length > 0 ? (
+      {user?.data?.bankAccounts?.length > 0 ? (
         <div className="bg-white  h-full rounded-2xl w-full max-w-md p-4 m-10 flex flex-col shadow-lg">
           <h1 className="text-center font-bold text-xl text-gray-800">
             Available Balance
@@ -53,8 +53,33 @@ function RightSide() {
               }}
             />
           </Link>
+          <hr className="border-t border-gray-300" />{" "}
+          <div className="py-3">
+            <div className="flex items-center gap-2">
+              <CardTravelIcon />
+              <h1 className="text-lg font-semibold">Employment Information</h1>
+            </div>
+            <div className="flex gap-1 py-2">
+              <h1 className="text-gray-600">Company Name:</h1>
+              <h1 className="text-gray-800">Airtel Inc</h1>
+            </div>
+          </div>
           <hr className="border-t border-gray-300" />
-          {/* ... rest of the code remains unchanged ... */}
+          <div className="py-3">
+            <div className="flex items-center gap-2">
+              <AccountBalanceIcon />
+              <h1 className="text-lg font-semibold">Bank Account Details</h1>
+            </div>
+            <div className="flex gap-1 py-2">
+              <h1 className="text-gray-600">Bank Name:</h1>
+              <h1 className="text-gray-800">{user?.data?.bank}</h1>
+            </div>
+            <div className="flex gap-1 py-2">
+              <h1 className="text-gray-600">Account Number:</h1>
+              <h1 className="text-gray-800">{user?.data?.AccountNumber}</h1>
+            </div>
+          </div>
+          <Lottie animationData={postanime} play className="w-62 h-84" />
         </div>
       ) : (
         <div className="bg-white  h-full rounded-2xl w-full max-w-md p-4 m-10 flex flex-col shadow-lg">

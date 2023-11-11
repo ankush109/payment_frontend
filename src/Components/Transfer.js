@@ -11,6 +11,7 @@ import { ListItemSecondaryAction } from "@mui/material";
 import Loading from "./Loading";
 import paymentSuccess from "./paySuccess.json";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import { Link } from "react-router-dom";
 function Transfer() {
   const user = GetUserQuery();
   const accounts = user?.data?.bankAccounts;
@@ -335,11 +336,15 @@ function Transfer() {
         )}
         {success && (
           <div className="fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-gray-800 bg-opacity-70">
-            <div className="bg-white rounded-lg flex flex-col justify-center items-center   p-6 w-[500px]  h-[300px] shadow-lg">
+            <div className="bg-white rounded-lg flex flex-col justify-center items-center   p-6 w-[500px]  h-[350px] shadow-lg">
               <Lottie animationData={paymentSuccess} play />
               <h3 className="text-xl  text-green-500 font-bold mb-4">
-                Payment success of ₹ {amount} to {found?.name}
+                Payment success of ₹ {amount} to {found.accountHolderName}
               </h3>
+              <Link className="font-bold text-blue-500 border-black" to="/">
+                {" "}
+                go to home
+              </Link>
             </div>
           </div>
         )}
