@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { GetUserQuery } from "../api/user";
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import CardTravelIcon from "@mui/icons-material/CardTravel";
@@ -34,7 +34,7 @@ function RightSide() {
             >
               {user?.data?.bankAccounts?.map((account, index) => (
                 <option key={index} value={index}>
-                  {account.bankName}
+                  {account?.bankName}
                 </option>
               ))}
             </select>
