@@ -15,7 +15,6 @@ function RightSide() {
 
   const handleAccountChange = (index) => {
     setSelectedAccountIndex(index);
-    setSelectedAccount(bankAccounts[index]);
   };
 
   return (
