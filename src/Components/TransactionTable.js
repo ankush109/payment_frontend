@@ -28,16 +28,12 @@ function TransactionTable() {
   const allTransactions = transactionsData?.data;
 
   const receivedTransactions = allTransactions?.filter(
-    (transaction) => transaction.senderId !== user?.data.id
+    (transaction) => transaction.senderId !== user?.data?.id
   );
 
   const sentTransactions = allTransactions?.filter(
-    (transaction) => transaction.senderId === user?.data.id
+    (transaction) => transaction.senderId === user?.data?.id
   );
-
-  useEffect(() => {
-    console.log(receivedTransactions);
-  }, []);
 
   const currentTransactions = () => {
     switch (selectedTab) {
@@ -137,36 +133,36 @@ function TransactionTable() {
                 onClick={() => openTransactionDetails(transaction)}
               >
                 <td className="px-4 py-2">
-                  {transaction.senderId !== user?.data.id
+                  {transaction?.senderId !== user?.data?.id
                     ? transaction?.sender?.name
                     : transaction?.receiver?.name}
                 </td>
                 <td className="px-4 py-2">
-                  {transaction.senderId !== user?.data.id
+                  {transaction?.senderId !== user?.data?.id
                     ? transaction?.senderPhoneNumber
                     : transaction?.recieverPhoneNumber}
                 </td>
                 <td className="px-4 py-2">
                   {transaction.amount > 0 ? (
-                    <span className="text-green-500 font-bold">{`₹ ${transaction.amount}`}</span>
+                    <span className="text-green-500 font-bold">{`₹ ${transaction?.amount}`}</span>
                   ) : (
                     <span className="text-red-500">{` ₹ ${Math.abs(
-                      transaction.amount
+                      transaction?.amount
                     )}`}</span>
                   )}
                 </td>
                 <td className="px-4 py-2">
-                  {formatTimestamp(transaction.timestamp)}
+                  {formatTimestamp(transaction?.timestamp)}
                 </td>
                 <td>
                   <span
                     className={
-                      transaction.senderId !== user?.data.id
+                      transaction?.senderId !== user?.data?.id
                         ? "bg-green-200 text-green-800 px-2 py-1 w-10 rounded"
                         : "bg-blue-200 text-blue-800 px-2 py-1 w-10 rounded"
                     }
                   >
-                    {transaction.senderId !== user?.data.id
+                    {transaction?.senderId !== user?.data?.id
                       ? "Received"
                       : "Sent"}
                   </span>
@@ -202,7 +198,7 @@ function TransactionTable() {
             <p>Amount: {selectedTransaction.amount}</p>
             <p>
               Status:{" "}
-              {selectedTransaction.senderId !== user?.data.id
+              {selectedTransaction?.senderId !== user?.data?.id
                 ? "Received"
                 : "Sent"}
             </p>
